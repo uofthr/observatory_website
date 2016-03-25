@@ -10,3 +10,5 @@ done
 convert latest.jpg -resize 800x600 frames800/loop1439.gif
 convert latest.jpg -resize 400x300 frames/loop1439.gif
 
+./make_hour.bash
+
