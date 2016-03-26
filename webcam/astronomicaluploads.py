@@ -26,3 +26,13 @@ if drn>dsn:
     if now.minute==0:
         # Full hour
         os.system("bash uploadToTwitter.bash")
+
+setting =  ephem.localtime(o.previous_setting(sun))
+rising =  ephem.localtime(o.previous_rising(sun))
+pns = ((now-setting).seconds)
+min90 = 5400 #7320 # 5400
+duration = (setting-rising).seconds/60
+start = 1439 - duration - 90 - 90
+if (pns>min90 and pns < min90+60) or 0:
+    # Sun set 90 minutes ago
+    os.system("bash uploadVideoToTwitter.bash %d 'Sunset occured 90 minutes ago in #Scarborough! Here is the entire day as a #timelapse from 🌄 to 🌇.'" % start)
