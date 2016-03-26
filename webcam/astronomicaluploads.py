@@ -15,11 +15,11 @@ rising = ephem.localtime(o.next_rising(sun))
 setting =  ephem.localtime(o.next_setting(sun))
 drn = (rising - now).seconds
 if drn>0 and drn<60 :
-    os.system("bash uploadToTwitter.bash 'Sunrise in Scarborough! Live view from the #UTSC observatory 🌄'")
+    os.system("bash uploadToTwitter.bash 'Good morning! Sunrise in #ScarbTO happening right now! Live view from the #UTSC observatory 🌄'")
 
 dsn = (setting - now).seconds
 if dsn>0 and dsn<60:
-    os.system("bash uploadToTwitter.bash 'Sunset in Scarborough! Live view from the #UTSC observatory 🌇'")
+    os.system("bash uploadToTwitter.bash 'Sunset in #Toronto! Live view from the #UTSC observatory 🌇'")
 
 if drn>dsn:
     # Day light
