@@ -12,3 +12,13 @@ convert latest.jpg -resize 400x300 frames/loop1439.gif
 
 ./make_hour.bash
 
+
+LID=`cat lid.txt`
+LID=$((LID+1))
+echo $LID >  lid.txt
+LIDP=`printf '%09d' ${LID}`
+cp latest.jpg frames_id/frame_${LIDP}.jpg
+
+LIDDAY=$((LID-1440))
+LIDDAYP=`printf '%09d' ${LIDDAY}`
+rm frames_id/frames_${LIDDAYP}.jpg
