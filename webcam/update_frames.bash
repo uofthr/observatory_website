@@ -19,6 +19,5 @@ echo $LID >  lid.txt
 LIDP=`printf '%09d' ${LID}`
 cp latest.jpg frames_id/frame_${LIDP}.jpg
 
-LIDDAY=$((LID-1440))
-LIDDAYP=`printf '%09d' ${LIDDAY}`
-rm frames_id/frames_${LIDDAYP}.jpg
+find frames_id/* -mtime +3 -exec rm {} \;
+
