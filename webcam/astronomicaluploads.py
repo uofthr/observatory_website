@@ -4,10 +4,8 @@ import datetime
 import os
 
 o=ephem.Observer()
-o.lat='3.7845659'
+o.lat='43.7845659'
 o.long='-79.1906955'
-o.pressure = 0
-o.horizon = '-1.5' 
 sun=ephem.Sun()
 sun.compute()
 now = datetime.datetime.now()
