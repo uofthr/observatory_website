@@ -13,6 +13,10 @@ now = datetime.datetime.now()
 rising = ephem.localtime(o.next_rising(sun))
 setting =  ephem.localtime(o.next_setting(sun))
 drn = (rising - now).seconds
+if drn<90*60:
+    if os.path.isfile("isnight.tag"):
+        os.system("rm isnight.tag")
+        os.system("bash uploadToTwitter.bash 'Last night as one long exposure.' longtimeexposure_max.png")
 if drn>0 and drn<120 :
     with open("posted_sunrise.txt","r") as f:
         posted_sunrise = int(f.read())
@@ -57,3 +61,6 @@ if (pns>min90 and pns<min90+120) or 0:
         with open("posted_timelapse.txt","w") as f:
             f.write("%d"%(yday))
         os.system("bash uploadVideoToTwitter.bash %d 'Sunset occured 90 minutes ago in #Scarborough! Here is the entire day as a #timelapse from 🌄 to 🌇.'" % start)
+        os.system("rm longtime_sum.npy")
+        os.system("rm longtime_max.npy")
+        os.system("touch isnight.tag")

@@ -5,8 +5,14 @@ else
     MESSAGE="$1"
 fi 
 
+if [ $# -lt 2 ]; then
+    FILENAME="latest.jpg"
+else
+    FILENAME="$2"
+fi 
+
 if [ `stat --format=%Y latest.jpg` -ge $(( `date +%s` - 600 )) ]; then
-    MEDIAJSON=`/usr/local/bin/twurl -H upload.twitter.com -X POST '/1.1/media/upload.json' --file 'latest.jpg' --file-field 'media'`
+    MEDIAJSON=`/usr/local/bin/twurl -H upload.twitter.com -X POST '/1.1/media/upload.json' --file "$FILENAME" --file-field 'media'`
     #echo "$MEDIAJSON"
     MEDIAID=`echo "$MEDIAJSON" | sed -rn 's/\{\"media_id\":(.*)\,\"media_id_string.*/\1/p'`
     echo "$MEDIAID"
