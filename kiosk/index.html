@@ -1,10 +1,39 @@
 <html>
     <head>
-        <meta http-equiv="refresh" content="30">
+        <meta http-equiv="refresh" content="5">
     </head>
+    <style>
+    body{
+        background-color: #000;
+        margin: 0px;
+        padding: 0px;
+        overflow:hidden;
+    }
+    img.live {
+        position: absolute;
+        top: 200px;
+        left: 480px;
+        width: 960px;
+        height: 720px;
+        border: 0px;
+        margin: 0;
+    }
+    h1.live {
+        text-align: center;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 1920px;
+        height: 360px;
+        padding: 10px;
+        margin:0px;
+        color: #fff;
+        font-size: 4.5em;
+    }
+    </style>
     <body>
-        <h1>Live image from the UTSC Observatory:</h1>
-        <img src="http://observatory.utsc.utoronto.ca/webcam/latest.jpg"/>
+        <h1 class="live">Live image from the UTSC Observatory, located on the roof of the Science Wing</h1>
+        <img class="live" src="http://observatory.utsc.utoronto.ca/webcam/latest.jpg"/>
     </body>
 </html>
 
