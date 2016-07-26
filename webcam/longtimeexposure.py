@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 import os
 if os.path.isfile("isnight.tag"):
-    latest = plt.imread("latest.jpg")
+    latest = plt.imread("latestnight.jpg")
     try:
         longtime_sum = np.load("longtime_sum.npy")
         longtime_sum += latest.astype(long)

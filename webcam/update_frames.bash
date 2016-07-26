@@ -10,6 +10,3 @@ LIDP=`printf '%09d' ${LID}`
 cp latest.jpg frames_id/frame_${LIDP}.jpg
 
 find frames_id/* -mtime +3 -exec rm {} \;
-
-source venv/bin/activate
-python longtimeexposure.py

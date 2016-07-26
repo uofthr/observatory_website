@@ -16,7 +16,7 @@ drn = (rising - now).seconds
 if drn<90*60:
     if os.path.isfile("isnight.tag"):
         os.system("rm isnight.tag")
-        os.system("bash uploadToTwitter.bash 'Last night as one long exposure.' longtimeexposure_max.png")
+        #os.system("bash uploadToTwitter.bash 'Last night as one long exposure.' longtimeexposure_max.png")
 if drn>0 and drn<120 :
     with open("posted_sunrise.txt","r") as f:
         posted_sunrise = int(f.read())
