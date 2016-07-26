@@ -11,29 +11,40 @@
     }
     img.live {
         position: absolute;
-        top: 200px;
-        left: 480px;
-        width: 960px;
-        height: 720px;
+        top: 0px;
+        left: 0px;
+        width: 1440px;
+        height: 1080px;
         border: 0px;
         margin: 0;
     }
-    h1.live {
-        text-align: center;
+    div.live {
         position: absolute;
         top: 0px;
-        left: 0px;
-        width: 1920px;
-        height: 360px;
+        left: 1440px;
+        width: 440px;
+        height: 1080px;
         padding: 10px;
         margin:0px;
         color: #fff;
-        font-size: 4.5em;
+        font-size: 2.8em;
     }
+    h1.live{
+        font-size: 2.8em;
+        padding: 0px;
+        margin:0px;
+    }
+
     </style>
     <body>
-        <h1 class="live">Live image from the UTSC Observatory, located on the roof of the Science Wing</h1>
         <img class="live" src="http://observatory.utsc.utoronto.ca/webcam/latest.jpg"/>
+        <div class="live">
+            <h1 class="live">LIVE IMAGE</h1> 
+            from the UTSC Observatory! The dome is located on the very top of the Science Wing and has an almost unobstructed 360&deg; view of the sky.
+            <br/>
+            <br/>
+            For more images and timelapse videos please follow us on twitter @UTSCObservatory.
+        </div>
     </body>
 </html>
 
