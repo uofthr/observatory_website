@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./make_hour.bash
+#./make_hour.bash
 
 
 LID=`cat lid.txt`
