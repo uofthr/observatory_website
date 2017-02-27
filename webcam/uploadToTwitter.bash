@@ -1,6 +1,8 @@
 #!/bin/bash
 if [ $# -lt 1 ]; then
-    MESSAGE="Live view from the #UTSC Observatory"
+    MESSAGES=( "Live view from the #UTSC Observatory. 📷" "Live view from weather camera at the @UTSCObservatory. #UofT #Toronto #ScarbTO" "Current conditions at the UTSC Observatory. #UofT" "Live image from the astronomical observatory at #UTSC. 🔭" "Current view from #UTSC towards Highland Creek. #ScarbTO 🏞🌳" "Current sky conditions at the #UTSC Observatory. 🌌🔭" )
+    i=$(( RANDOM % ${#MESSAGES[@]} ))
+    MESSAGE="${MESSAGES[i]}"
 else
     MESSAGE="$1"
 fi 
