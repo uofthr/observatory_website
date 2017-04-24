@@ -60,7 +60,7 @@ if (pns>min90 and pns<min90+120) or 0:
     if posted_timelapse != yday:
         with open("posted_timelapse.txt","w") as f:
             f.write("%d"%(yday))
-        os.system("bash uploadVideoToTwitter.bash %d 'Sunset occured 90 minutes ago in #Scarborough! Here is the entire day as a #timelapse from 🌄 to 🌇.'" % start)
+        os.system("bash uploadVideoToTwitter.bash %d 'Sunset occurred 90 minutes ago in #Scarborough! Here is the entire day as a #timelapse from 🌄 to 🌇.'" % start)
         os.system("rm longtime_sum.npy")
         os.system("rm longtime_max.npy")
         os.system("touch isnight.tag")
