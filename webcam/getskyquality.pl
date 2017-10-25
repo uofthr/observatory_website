@@ -15,3 +15,8 @@ $remote->recv($saw,255);
 $remote->close;
 # Print the SQM result to the screen
 printf("%s", $saw);
+my $filename = 'skyquality.log';
+open(my $fh, '>>', $filename) or die "Could not open file '$filename' $!";
+printf $fh ("%d, %s", time(), $saw);
+close $fh;
+system('echo "$(tail -80 skyquality.log)" > skyquality.log');
