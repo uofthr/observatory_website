@@ -13,6 +13,9 @@ now = datetime.datetime.now()
 rising = ephem.localtime(o.next_rising(sun))
 setting =  ephem.localtime(o.next_setting(sun))
 drn = (rising - now).seconds
+if drn<45*60:
+    if os.path.isfile("isnight45.tag"):
+        os.system("rm isnight45.tag")
 if drn<90*60:
     if os.path.isfile("isnight.tag"):
         os.system("rm isnight.tag")
@@ -44,6 +47,7 @@ setting =  ephem.localtime(o.previous_setting(sun))
 rising =  ephem.localtime(o.previous_rising(sun))
 pns = ((now-setting).seconds)
 min90 = 5400 #7320 # 5400
+min45 = 4050 #7320 # 5400
 duration = (setting-rising).seconds/60
 with open("lid.txt","r") as f:
     lid = int(f.read())
@@ -64,3 +68,5 @@ if (pns>min90 and pns<min90+120) or 0:
         os.system("rm longtime_sum.npy")
         os.system("rm longtime_max.npy")
         os.system("touch isnight.tag")
+if (pns>min45 and pns<min45+120) or 0:
+    os.system("touch isnight45.tag")

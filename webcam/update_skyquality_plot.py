@@ -9,7 +9,11 @@ import matplotlib.dates as md
 fig, ax = plt.subplots(1,1,figsize=(6,3))
 xfmt = md.DateFormatter('%H:%M')
 ax.xaxis.set_major_formatter(xfmt)
-ax.set_ylabel("sky brightness [mpas]")
+ax.set_ylabel("sky brightness [mag/arcsec${}^2$]")
+ax.invert_yaxis()
+ax.set_title('UTSC Observatory/RASCTC', loc='right')
+
+
 
 with open('skyquality.log', 'r') as content_file:
     log = content_file.readlines()
