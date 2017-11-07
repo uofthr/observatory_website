@@ -19,4 +19,5 @@ my $filename = 'skyquality.log';
 open(my $fh, '>>', $filename) or die "Could not open file '$filename' $!";
 printf $fh ("%d, %s", time(), $saw);
 close $fh;
-system('echo "$(tail -80 skyquality.log)" > skyquality.log');
+system('echo "$(tail -1440 skyquality.log)" > skyquality.log');
+system('tail -n 1 skyquality.log| awk -F, "{print \$1,\$3}" | sed \'s/m//g\' >> all_skyquality.log');
