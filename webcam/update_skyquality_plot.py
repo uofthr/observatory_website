@@ -22,10 +22,13 @@ time = []
 ms = []
 for r in log:
     c = r.split(",")
-    t = int(c[0])
-    m = float(c[2][:-1])
-    time.append(dt.datetime.fromtimestamp(t))
-    ms.append(m)
+    try:
+        t = int(c[0])
+        m = float(c[2][:-1])
+        time.append(dt.datetime.fromtimestamp(t))
+        ms.append(m)
+    except:
+        pass
 
 ax.plot(time,ms)
 lowlim=20
