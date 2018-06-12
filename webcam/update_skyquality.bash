@@ -8,5 +8,7 @@ if [ -f $ISNIGHT ]; then
     echo $VALUE
     MESSAGE="${MESSAGES[i]}${VALUE}psas (magnitudes per square arcsecond). 🔭🌃"
     python update_skyquality_plot.py
-    ./uploadToTwitter.bash "$MESSAGE" skyquality.png nocheck
+    if [ `stat --format=%Y skyquality.png` -ge $(( `date +%s` - 6000 )) ]; then
+        ./uploadToTwitter.bash "$MESSAGE" skyquality.png nocheck
+    fi
 fi
